@@ -1,0 +1,12 @@
+{
+  "Mysql": {
+    "host": "localhost",
+    "port": 3306,
+    "url": "",
+    "database": "db_middleware",
+    "password": "password",
+    "name": "Mysql",
+    "user": "root",
+    "connector": "mysql"
+  }
+}

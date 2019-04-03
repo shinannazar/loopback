@@ -1,0 +1,74 @@
+{
+    "initial:before": {
+        "loopback#favicon": {}
+    },
+    "initial": {
+        "./middleware/tracker.js": {
+            "methods": [
+                "patch",
+                "delete"
+            ],
+            "paths": [
+                "/products",
+                "/orders"
+            ]
+        },
+        "compression": {},
+        "cors": {
+            "params": {
+                "origin": "*",
+                "credentials": true,
+                "maxAge": 86400
+            }
+        },
+        "helmet#xssFilter": {},
+        "helmet#frameguard": {
+            "params": {
+                "action": "deny"
+            }
+        },
+        "helmet#hsts": {
+            "params": {
+                "maxAge": 0,
+                "includeSubdomains": true
+            }
+        },
+        "helmet#hidePoweredBy": {},
+        "helmet#ieNoOpen": {},
+        "helmet#noSniff": {},
+        "helmet#noCache": {
+            "enabled": false
+        }
+    },
+    "session:before": {
+        "./middleware/requested": {
+            "methods": [
+                "delete"
+            ],
+            "paths": "/orders"
+        }
+    },
+    "auth": {},
+    "parse": {
+        "body-parser#json": {},
+        "body-parser#urlencoded": {
+            "params": {
+                "extended": true
+            }
+        }
+    },
+    "routes": {
+        "loopback#rest": {
+            "paths": [
+                "${restApiRoot}"
+            ]
+        }
+    },
+    "files": {},
+    "final": {
+        "loopback#urlNotFound": {}
+    },
+    "final:after": {
+        "strong-error-handler": {}
+    }
+}

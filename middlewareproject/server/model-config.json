@@ -1,0 +1,40 @@
+{
+    "_meta": {
+        "sources": [
+            "loopback/common/models",
+            "loopback/server/models",
+            "../common/models",
+            "./models"
+        ],
+        "mixins": [
+            "loopback/common/mixins",
+            "loopback/server/mixins",
+            "../common/mixins",
+            "./mixins"
+        ]
+    },
+    "user": {
+        "dataSource": "Mysql",
+        "public": true,
+        "options": {
+            "realmRequired": true,
+            "realmDelimiter": ":"
+        }
+    },
+    "User": {
+        "dataSource": "Mysql",
+        "public": false
+    },
+    "AccessToken": {
+        "dataSource": "Mysql",
+        "public": false
+    },
+    "products": {
+        "dataSource": "Mysql",
+        "public": true
+    },
+    "orders": {
+        "dataSource": "Mysql",
+        "public": true
+    }
+}
